@@ -813,7 +813,7 @@ footer p{font-family:'EB Garamond',serif;font-style:italic;font-size:16px;color:
     <div id="rsvp-form-wrap" class="rsvp-card">
       <p style="font-family:'EB Garamond',serif;font-style:italic;font-size:18px;color:var(--text-mid);text-align:center;margin-bottom:36px;line-height:1.85;">
         Your presence on our wedding morning would mean the world to us.<br>
-        Please respond by <strong style="color:var(--saffron-l);">June 20th, 2026</strong>.
+        Please respond by <strong style="color:var(--saffron-l);">June 17th, 2026</strong>.
       </p>
       <div style="display:grid;gap:20px;">
         <div><label class="rsvp-label">Your Full Name *</label><input id="rsvp-name" type="text" class="rsvp-input" placeholder="Enter your name"></div>
@@ -988,5 +988,45 @@ async function submitRSVP(){
 function errField(id,msg){const el=document.getElementById(id);if(el){el.style.borderColor='#e04040';el.style.boxShadow='0 0 0 3px rgba(224,64,64,0.12)';setTimeout(()=>{el.style.borderColor='';el.style.boxShadow='';},3000);}showErr(msg);}
 function showErr(msg){let e=document.getElementById('rsvp-err');if(!e){e=document.createElement('p');e.id='rsvp-err';e.style.cssText='color:#e08080;font-family:EB Garamond,serif;font-style:italic;font-size:15px;margin-top:12px;text-align:center;';document.querySelector('.rsvp-btn').after(e);}e.textContent=msg;setTimeout(()=>{e.textContent='';},6000);}
 </script>
+
+<!-- ── BACKGROUND MUSIC ── -->
+<audio id="bg-music" loop preload="auto">
+  <source src="https://github.com/deepakmoha054/audio/raw/refs/heads/main/Kalyanam%20Aidicha%20Flute%20by%20LAKHINANDAN%20LAHON%20%20%23ramanflute%20%23flutemusic%20%23music%20%23flute%20%23assameseflute.mp3" type="audio/mpeg">
+</audio>
+<button id="music-btn" onclick="toggleMusic()" title="Toggle music" style="position:fixed;bottom:28px;right:28px;z-index:9999;width:52px;height:52px;border-radius:50%;border:1.5px solid rgba(232,131,10,0.6);background:rgba(26,10,34,0.85);backdrop-filter:blur(8px);color:#f5b040;font-size:22px;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 0 18px rgba(232,131,10,0.3);transition:all 0.3s ease;">🎵</button>
+<script>
+(function(){
+  var music = document.getElementById("bg-music");
+  var btn   = document.getElementById("music-btn");
+  var playing = false;
+  music.volume = 0.35;
+
+  document.addEventListener("click", function startOnce() {
+    if (!playing) {
+      music.play().then(function(){
+        playing = true;
+        btn.textContent = "🎵";
+      }).catch(function(){});
+    }
+    document.removeEventListener("click", startOnce);
+  }, { once: true });
+
+  window.toggleMusic = function() {
+    if (playing) {
+      music.pause();
+      btn.textContent = "🔇";
+      btn.style.opacity = "0.55";
+      playing = false;
+    } else {
+      music.volume = 0.27;
+      music.play();
+      btn.textContent = "🎵";
+      btn.style.opacity = "1";
+      playing = true;
+    }
+  };
+})();
+</script>
+
 </body>
 </html>

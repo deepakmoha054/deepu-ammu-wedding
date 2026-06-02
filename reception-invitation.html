@@ -979,7 +979,7 @@
     <div class="rsvp-card" id="rsvp-card-inner">
       <p style="font-family:'Playfair Display',serif; font-style:italic; font-size:17px; color:var(--text-dim); text-align:center; margin-bottom:36px; line-height:1.8;">
         Your presence at our reception would fill the evening with joy.<br>
-        Kindly respond by <strong style="color:var(--gold-light);">June 20th, 2026</strong>.
+        Kindly respond by <strong style="color:var(--gold-light);">June 17th, 2026</strong>.
       </p>
 
       <div style="display:grid; gap:20px;">
@@ -1244,5 +1244,45 @@ function showSubmitError(msg) {
   setTimeout(() => { err.textContent = ''; }, 6000);
 }
 </script>
+
+<!-- ── BACKGROUND MUSIC ── -->
+<audio id="bg-music" loop preload="auto">
+  <source src="https://github.com/deepakmoha054/audio/raw/refs/heads/main/Kalyanam%20Aidicha%20Flute%20by%20LAKHINANDAN%20LAHON%20%20%23ramanflute%20%23flutemusic%20%23music%20%23flute%20%23assameseflute.mp3" type="audio/mpeg">
+</audio>
+<button id="music-btn" onclick="toggleMusic()" title="Toggle music" style="position:fixed;bottom:28px;right:28px;z-index:9999;width:52px;height:52px;border-radius:50%;border:1.5px solid rgba(232,131,10,0.6);background:rgba(26,10,34,0.85);backdrop-filter:blur(8px);color:#f5b040;font-size:22px;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 0 18px rgba(232,131,10,0.3);transition:all 0.3s ease;">🎵</button>
+<script>
+(function(){
+  var music = document.getElementById("bg-music");
+  var btn   = document.getElementById("music-btn");
+  var playing = false;
+  music.volume = 0.35;
+
+  document.addEventListener("click", function startOnce() {
+    if (!playing) {
+      music.play().then(function(){
+        playing = true;
+        btn.textContent = "🎵";
+      }).catch(function(){});
+    }
+    document.removeEventListener("click", startOnce);
+  }, { once: true });
+
+  window.toggleMusic = function() {
+    if (playing) {
+      music.pause();
+      btn.textContent = "🔇";
+      btn.style.opacity = "0.55";
+      playing = false;
+    } else {
+      music.volume = 0.35;
+      music.play();
+      btn.textContent = "🎵";
+      btn.style.opacity = "1";
+      playing = true;
+    }
+  };
+})();
+</script>
+
 </body>
 </html>
