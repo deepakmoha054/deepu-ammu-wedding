@@ -796,18 +796,9 @@
     <h2 class="section-title">The Silver Companion</h2>
     <p class="section-subtitle">✦ Their Royal Enfield Classic 350 ✦</p>
 
-    <input type="file" id="bike-photo-input" accept="image/*" style="display:none;" onchange="loadBikePhoto(event)">
-
     <div class="bike-illustration" id="bike-display-area">
-      <div id="bike-upload-placeholder" onclick="triggerPhotoUpload()" style="cursor:pointer;border:2px dashed rgba(232,131,10,0.4);border-radius:4px;padding:60px 32px;text-align:center;transition:all 0.35s;background:rgba(232,131,10,0.03);" onmouseover="this.style.borderColor='rgba(232,131,10,0.9)';this.style.background='rgba(232,131,10,0.08)'" onmouseout="this.style.borderColor='rgba(232,131,10,0.4)';this.style.background='rgba(232,131,10,0.03)'">
-        <div style="font-size:54px;margin-bottom:18px;opacity:0.75;animation:floatIcon 3s ease-in-out infinite;">🏍️</div>
-        <p style="font-family:'EB Garamond',serif;font-size:12px;letter-spacing:5px;text-transform:uppercase;color:var(--saffron-l);margin-bottom:10px;">Add your photo</p>
-        <p style="font-size:16px;color:var(--text-dim);font-style:italic;max-width:360px;margin:0 auto 24px;line-height:1.7;">Tap to upload a photo of your beloved Royal Enfield Classic 350</p>
-        <div style="display:inline-block;border:1.5px solid rgba(232,131,10,0.55);padding:11px 30px;font-family:'EB Garamond',serif;font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--saffron-l);">📷 &nbsp; Upload Photo</div>
-      </div>
-      <div id="bike-photo-wrap" style="display:none;text-align:center;">
-        <img id="bike-photo-img" src="" alt="Our Royal Enfield" style="max-width:100%;max-height:480px;border:2px solid rgba(232,131,10,0.4);border-radius:4px;box-shadow:0 8px 48px rgba(155,26,106,0.4);object-fit:cover;">
-        <p style="margin-top:16px;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:rgba(232,131,10,0.5);cursor:pointer;" onclick="triggerPhotoUpload()">✦ Change photo ✦</p>
+      <div id="bike-photo-wrap" style="display:block;text-align:center;">
+        <img id="bike-photo-img" src="photos/bike.jpg" alt="Our Royal Enfield" style="max-width:100%;max-height:480px;border:2px solid rgba(232,131,10,0.4);border-radius:4px;box-shadow:0 8px 48px rgba(155,26,106,0.4);object-fit:cover;">
       </div>
     </div>
 
@@ -825,55 +816,37 @@
     <h2 class="section-title">Our Moments</h2>
     <p class="section-subtitle">✦ A glimpse into seven years of love ✦</p>
 
-    <!-- hidden multi-file input -->
-    <input type="file" id="gallery-input" accept="image/*" multiple style="display:none;" onchange="addGalleryPhotos(event)">
+    <!-- hidden multi-file input removed — photos are hardcoded -->
 
     <div class="gallery-grid" id="gallery-grid">
-      <!-- Slot 1 — tall left anchor -->
       <div class="gallery-item tall" id="gslot-0" style="min-height:220px;">
-        <div class="gallery-upload-tile" onclick="document.getElementById('gallery-input').click()">
-          <span class="up-icon">🌸</span>
-          <span class="up-label">Add a photo</span>
-        </div>
+        <img src="photos/gallery-1.jpg" alt="Thrissur" onclick="openLightbox('photos/gallery-1.jpg','Thrissur')">
+        <div class="gallery-overlay"><span class="gallery-overlay-text">Thrissur</span></div>
       </div>
-      <!-- Slot 2 — wide top right -->
       <div class="gallery-item wide" id="gslot-1" style="min-height:180px;">
-        <div class="gallery-upload-tile" onclick="document.getElementById('gallery-input').click()">
-          <span class="up-icon">💌</span>
-          <span class="up-label">Add a photo</span>
-        </div>
+        <img src="photos/gallery-2.jpg" alt="Best Friends" onclick="openLightbox('photos/gallery-2.jpg','Best Friends')">
+        <div class="gallery-overlay"><span class="gallery-overlay-text">Best Friends</span></div>
       </div>
-      <!-- Slot 3 -->
       <div class="gallery-item" id="gslot-2" style="min-height:180px;">
-        <div class="gallery-upload-tile" onclick="document.getElementById('gallery-input').click()">
-          <span class="up-icon">🏍️</span>
-          <span class="up-label">Add a photo</span>
-        </div>
+        <img src="photos/gallery-3.jpg" alt="Thiruvananthapuram Days" onclick="openLightbox('photos/gallery-3.jpg','Thiruvananthapuram Days')">
+        <div class="gallery-overlay"><span class="gallery-overlay-text">Thiruvananthapuram Days</span></div>
       </div>
-      <!-- Slot 4 -->
       <div class="gallery-item" id="gslot-3" style="min-height:180px;">
-        <div class="gallery-upload-tile" onclick="document.getElementById('gallery-input').click()">
-          <span class="up-icon">✈️</span>
-          <span class="up-label">Add a photo</span>
-        </div>
+        <img src="photos/gallery-4.jpg" alt="Open Roads" onclick="openLightbox('photos/gallery-4.jpg','Open Roads')">
+        <div class="gallery-overlay"><span class="gallery-overlay-text">Open Roads</span></div>
       </div>
-      <!-- Slot 5 — wide bottom -->
       <div class="gallery-item wide" id="gslot-4" style="min-height:180px;">
-        <div class="gallery-upload-tile" onclick="document.getElementById('gallery-input').click()">
-          <span class="up-icon">💍</span>
-          <span class="up-label">Add a photo</span>
-        </div>
+        <img src="photos/gallery-5.jpg" alt="Our Day 💍" onclick="openLightbox('photos/gallery-5.jpg','Our Day 💍')">
+        <div class="gallery-overlay"><span class="gallery-overlay-text">Our Day 💍</span></div>
       </div>
-    </div>
-
-    <div style="text-align:center;">
-      <button class="gallery-add-btn" onclick="document.getElementById('gallery-input').click()">
-        📷 &nbsp; Add More Photos
-      </button>
+      <div class="gallery-item" id="gslot-5" style="min-height:180px;">
+        <img src="photos/gallery-7.jpg" alt="Together, 2023" onclick="openLightbox('photos/gallery-7.jpg','Together, 2023')">
+        <div class="gallery-overlay"><span class="gallery-overlay-text">Together, 2023</span></div>
+      </div>
     </div>
 
     <p style="text-align:center;margin-top:18px;font-family:'EB Garamond',serif;font-style:italic;font-size:15px;color:var(--text-dim);">
-      Click any photo to view it larger &nbsp;·&nbsp; Click a placeholder to upload
+      Click any photo to view it larger
     </p>
   </div>
 </section>
@@ -987,7 +960,7 @@
         </div>
 
         <div>
-          <label class="rsvp-label">Dietary Preference</label>
+          <label class="rsvp-label">Dietary Preference for Reception</label>
           <select id="rsvp-dietary" class="rsvp-input" style="appearance:none;cursor:pointer;">
             <option value="">Select a preference...</option>
             <option value="vegetarian">🥦 Vegetarian</option>
@@ -1031,7 +1004,7 @@
   <p>From Pala to Thiruvananthapuram, from Ottapalam to Aachen,<br>and back home — to each other.</p>
   <div class="footer-divider"></div>
   <p style="font-family:'Dancing Script',cursive;font-size:28px;font-weight:700;color:var(--saffron-l);margin-bottom:10px;font-style:normal;">June 27, 2026</p>
-  <p class="footer-note">✦ &nbsp; With love  Deepu, Ammu, Anoop, Geethu & Meenu &nbsp; ✦</p>
+  <p class="footer-note">✦ &nbsp; With love  Deepu, Ammu, Sobha, Anoop, Geethu & Meenu &nbsp; ✦</p>
 </footer>
 
 <script>
@@ -1112,51 +1085,6 @@ function animateCanvas() {
 animateCanvas();
 
 // ── PHOTO GALLERY ──
-const gallerySlots     = 5;          // pre-built slots
-let   nextSlot         = 0;          // next slot index to fill
-let   extraItems       = [];         // items added beyond slot count
-const captions         = ['August 2016','Best Friends','Thiruvananthapuram Days','Open Roads','Our Day 💍'];
-
-function addGalleryPhotos(event) {
-  const files = Array.from(event.target.files);
-  files.forEach(file => {
-    const reader = new FileReader();
-    reader.onload = e => {
-      if (nextSlot < gallerySlots) {
-        fillSlot(nextSlot, e.target.result, captions[nextSlot] || '');
-        nextSlot++;
-      } else {
-        appendExtraItem(e.target.result);
-      }
-    };
-    reader.readAsDataURL(file);
-  });
-  event.target.value = '';           // allow re-selecting same file
-}
-
-function fillSlot(idx, src, caption) {
-  const slot = document.getElementById('gslot-' + idx);
-  if (!slot) return;
-  slot.innerHTML =
-    `<img src="${src}" alt="${caption}" onclick="openLightbox('${src}','${caption}')">
-     <div class="gallery-overlay"><span class="gallery-overlay-text">${caption}</span></div>`;
-  // trigger visible animation
-  setTimeout(() => slot.classList.add('visible'), 50);
-}
-
-function appendExtraItem(src) {
-  const grid = document.getElementById('gallery-grid');
-  const div  = document.createElement('div');
-  div.className = 'gallery-item';
-  div.style.minHeight = '200px';
-  div.innerHTML =
-    `<img src="${src}" alt="Our moment" onclick="openLightbox('${src}','Our moment')">
-     <div class="gallery-overlay"><span class="gallery-overlay-text">Our moment</span></div>`;
-  grid.appendChild(div);
-  setTimeout(() => div.classList.add('visible'), 50);
-  extraItems.push(div);
-}
-
 // observe initial slot tiles for scroll animation
 document.querySelectorAll('.gallery-item').forEach(el => observer.observe(el));
 
@@ -1172,19 +1100,6 @@ function closeLightbox() {
   document.body.style.overflow = '';
 }
 document.addEventListener('keydown', e => { if(e.key === 'Escape') closeLightbox(); });
-
-function triggerPhotoUpload() { document.getElementById('bike-photo-input').click(); }
-function loadBikePhoto(event) {
-  const file = event.target.files[0];
-  if (!file) return;
-  const reader = new FileReader();
-  reader.onload = function(e) {
-    document.getElementById('bike-photo-img').src = e.target.result;
-    document.getElementById('bike-upload-placeholder').style.display = 'none';
-    document.getElementById('bike-photo-wrap').style.display = 'block';
-  };
-  reader.readAsDataURL(file);
-}
 
 // ─────────────────────────────────────────────────────────────────
 // GOOGLE SHEETS RSVP CONFIG

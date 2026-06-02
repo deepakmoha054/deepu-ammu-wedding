@@ -636,10 +636,8 @@ footer p{font-family:'EB Garamond',serif;font-style:italic;font-size:16px;color:
     <div class="gold-rule"><div class="rl"></div><div class="rd"></div><div class="rl"></div></div>
     <div class="portraits-row">
       <div class="portrait-card">
-        <input type="file" id="groom-photo-input" accept="image/*" style="display:none;" onchange="loadPortrait('groom',event)">
-        <div class="portrait-photo-area" onclick="document.getElementById('groom-photo-input').click()" id="groom-photo-area">
-          <img id="groom-photo-img" src="" alt="Deepak">
-          <div class="portrait-upload-hint"><span class="pu-icon">🤵</span><p class="pu-text">Tap to add photo</p></div>
+        <div class="portrait-photo-area" id="groom-photo-area">
+          <img id="groom-photo-img" src="photos/deepak.jpg" alt="Deepak" style="display:block;">
         </div>
         <div class="portrait-info">
           <p class="portrait-name">Deepak</p><p class="portrait-nick">"Deepu"</p>
@@ -651,10 +649,8 @@ footer p{font-family:'EB Garamond',serif;font-style:italic;font-size:16px;color:
         <div class="hring">💕</div><div class="hring">🌸</div><div class="hring">💍</div>
       </div>
       <div class="portrait-card" style="transition-delay:0.2s;">
-        <input type="file" id="bride-photo-input" accept="image/*" style="display:none;" onchange="loadPortrait('bride',event)">
-        <div class="portrait-photo-area" onclick="document.getElementById('bride-photo-input').click()" id="bride-photo-area">
-          <img id="bride-photo-img" src="" alt="Athira">
-          <div class="portrait-upload-hint"><span class="pu-icon">👰</span><p class="pu-text">Tap to add photo</p></div>
+        <div class="portrait-photo-area" id="bride-photo-area">
+          <img id="bride-photo-img" src="photos/athira.jpg" alt="Athira" style="display:block;">
         </div>
         <div class="portrait-info">
           <p class="portrait-name">Athira</p><p class="portrait-nick">"Ammu"</p>
@@ -752,18 +748,15 @@ footer p{font-family:'EB Garamond',serif;font-style:italic;font-size:16px;color:
     <p class="section-eyebrow">✦ Moments Together ✦</p>
     <h2 class="section-title">Our Journey</h2>
     <div class="gold-rule"><div class="rl"></div><div class="rd"></div><div class="rd" style="opacity:0.4;transform:rotate(45deg) scale(0.55);"></div><div class="rd"></div><div class="rl"></div></div>
-    <input type="file" id="gallery-input" accept="image/*" multiple style="display:none;" onchange="addGalleryPhotos(event)">
     <div class="gallery-grid" id="gallery-grid">
-      <div class="gallery-item tall" id="gslot-0" style="min-height:220px;"><div class="gallery-upload-tile" onclick="document.getElementById('gallery-input').click()"><span class="up-icon">🌸</span><span class="up-label">Add photo</span></div></div>
-      <div class="gallery-item wide" id="gslot-1" style="min-height:180px;"><div class="gallery-upload-tile" onclick="document.getElementById('gallery-input').click()"><span class="up-icon">💌</span><span class="up-label">Add photo</span></div></div>
-      <div class="gallery-item"      id="gslot-2" style="min-height:180px;"><div class="gallery-upload-tile" onclick="document.getElementById('gallery-input').click()"><span class="up-icon">🏍️</span><span class="up-label">Add photo</span></div></div>
-      <div class="gallery-item"      id="gslot-3" style="min-height:180px;"><div class="gallery-upload-tile" onclick="document.getElementById('gallery-input').click()"><span class="up-icon">✈️</span><span class="up-label">Add photo</span></div></div>
-      <div class="gallery-item wide" id="gslot-4" style="min-height:180px;"><div class="gallery-upload-tile" onclick="document.getElementById('gallery-input').click()"><span class="up-icon">💍</span><span class="up-label">Add photo</span></div></div>
+      <div class="gallery-item tall" id="gslot-0" style="min-height:220px;"><img src="photos/gallery-1.jpg" alt="Thrissur" onclick="openLB('photos/gallery-1.jpg','Thrissur')"><div class="goverlay"><span>Thrissur</span></div></div>
+      <div class="gallery-item wide" id="gslot-1" style="min-height:180px;"><img src="photos/gallery-2.jpg" alt="Varikkassery, 2019" onclick="openLB('photos/gallery-2.jpg','Varikkassery, 2019')"><div class="goverlay"><span>Varikkassery,2019</span></div></div>
+      <div class="gallery-item"      id="gslot-2" style="min-height:180px;"><img src="photos/gallery-3.jpg" alt="Thiruvananthapuram Days" onclick="openLB('photos/gallery-3.jpg','Thiruvananthapuram Days')"><div class="goverlay"><span>Thiruvananthapuram Days</span></div></div>
+      <div class="gallery-item"      id="gslot-3" style="min-height:180px;"><img src="photos/gallery-4.jpg" alt="Our Journey" onclick="openLB('photos/gallery-4.jpg','Our Journey')"><div class="goverlay"><span>Our Journey</span></div></div>
+      <div class="gallery-item wide" id="gslot-4" style="min-height:180px;"><img src="photos/gallery-5.jpg" alt="The Engagement 💍" onclick="openLB('photos/gallery-5.jpg','The Engagement 💍')"><div class="goverlay"><span>The Engagement 💍</span></div></div>
+      <div class="gallery-item"      id="gslot-5" style="min-height:180px;"><img src="photos/gallery-6.jpg" alt="Together, 2022" onclick="openLB('photos/gallery-6.jpg','Together, 2022')"><div class="goverlay"><span>Together, 2022</span></div></div>
     </div>
-    <div style="text-align:center;">
-      <button class="gallery-add-btn" onclick="document.getElementById('gallery-input').click()">📷 &nbsp; Add More Photos</button>
-    </div>
-    <p style="text-align:center;margin-top:14px;font-family:'EB Garamond',serif;font-style:italic;font-size:15px;color:var(--text-dim);">Click any photo to view larger · Click a placeholder to upload</p>
+    <p style="text-align:center;margin-top:14px;font-family:'EB Garamond',serif;font-style:italic;font-size:15px;color:var(--text-dim);">Click any photo to view larger</p>
   </div>
 </section>
 
@@ -780,17 +773,9 @@ footer p{font-family:'EB Garamond',serif;font-style:italic;font-size:16px;color:
     <p class="section-eyebrow">✦ Their story on two wheels ✦</p>
     <h2 class="section-title">The Silver Companion</h2>
     <div class="gold-rule"><div class="rl"></div><div class="rd"></div><div class="rl"></div></div>
-    <input type="file" id="bike-input" accept="image/*" style="display:none;" onchange="loadBike(event)">
     <div class="bike-upload-area">
-      <div class="bike-placeholder" id="bike-placeholder" onclick="document.getElementById('bike-input').click()">
-        <span class="bp-icon">🏍️</span>
-        <p class="bp-label">Add your photo</p>
-        <p class="bp-hint">Tap to upload a photo of your beloved Royal Enfield Classic 350</p>
-        <span class="bp-btn">📷 &nbsp; Upload Photo</span>
-      </div>
-      <div class="bike-photo-wrap" id="bike-photo-wrap">
-        <img id="bike-photo-img" src="" alt="Our Royal Enfield">
-        <p class="bike-change" onclick="document.getElementById('bike-input').click()">✦ Change photo ✦</p>
+      <div class="bike-photo-wrap" id="bike-photo-wrap" style="display:block;">
+        <img id="bike-photo-img" src="photos/bike.jpg" alt="Our Royal Enfield">
       </div>
     </div>
     <p class="bike-story" style="margin-top:40px;">"There's a Royal Enfield Classic 350 that knows every secret of our story — the long drives through winding roads, the quiet conversations, the shared silences that said more than words ever could. She carried two dreamers through their most beautiful years."</p>
@@ -849,12 +834,7 @@ footer p{font-family:'EB Garamond',serif;font-style:italic;font-size:16px;color:
         </div>
         <div>
           <label class="rsvp-label">Dietary Preference</label>
-          <select id="rsvp-dietary" class="rsvp-input" style="appearance:none;cursor:pointer;">
-            <option value="">Select a preference...</option>
-            <option>🥦 Vegetarian</option><option>🍗 Non-Vegetarian</option><option>🌱 Vegan</option>
-            <option>🌿 Jain</option><option>🌾 Gluten-Free</option><option>🥛 Dairy-Free</option>
-            <option>☪️ Halal</option><option>✨ No Preference</option>
-          </select>
+          <div id="rsvp-dietary" class="rsvp-input" style="cursor:default;opacity:0.85;">🥦🥗 Vegetarian Kerala Sadya</div>
         </div>
         <div><label class="rsvp-label">A note for the couple (optional)</label><textarea id="rsvp-message" rows="3" class="rsvp-input" style="resize:vertical;" placeholder="Send Deepu & Ammu your wishes..."></textarea></div>
         <button class="rsvp-btn" onclick="submitRSVP()">Send RSVP ✦</button>
@@ -946,53 +926,6 @@ function tick(){
 }
 setInterval(tick,1000);tick();
 
-// ── PORTRAIT UPLOAD ──
-function loadPortrait(who,e){
-  const file=e.target.files[0];if(!file)return;
-  const r=new FileReader();
-  r.onload=ev=>{
-    const img=document.getElementById(who+'-photo-img');
-    const hint=document.querySelector('#'+who+'-photo-area .portrait-upload-hint');
-    img.src=ev.target.result;img.style.display='block';
-    if(hint)hint.style.display='none';
-  };r.readAsDataURL(file);
-}
-
-// ── BIKE UPLOAD ──
-function loadBike(e){
-  const file=e.target.files[0];if(!file)return;
-  const r=new FileReader();
-  r.onload=ev=>{
-    document.getElementById('bike-photo-img').src=ev.target.result;
-    document.getElementById('bike-placeholder').style.display='none';
-    document.getElementById('bike-photo-wrap').style.display='block';
-  };r.readAsDataURL(file);
-}
-
-// ── GALLERY ──
-let nextSlot=0;
-const CAPS=['Pala, 2016','Open Roads','Together','Our Journey','The Wedding 💍'];
-function addGalleryPhotos(e){
-  Array.from(e.target.files).forEach(file=>{
-    const r=new FileReader();
-    r.onload=ev=>{
-      if(nextSlot<5){fillSlot(nextSlot,ev.target.result,CAPS[nextSlot]||'Our moment');nextSlot++;}
-      else appendExtra(ev.target.result);
-    };r.readAsDataURL(file);
-  });e.target.value='';
-}
-function fillSlot(i,src,cap){
-  const el=document.getElementById('gslot-'+i);if(!el)return;
-  el.innerHTML=`<img src="${src}" alt="${cap}" onclick="openLB('${src}','${cap}')"><div class="goverlay"><span>${cap}</span></div>`;
-  setTimeout(()=>el.classList.add('visible'),50);
-}
-function appendExtra(src){
-  const g=document.getElementById('gallery-grid'),d=document.createElement('div');
-  d.className='gallery-item';d.style.minHeight='200px';
-  d.innerHTML=`<img src="${src}" alt="Our moment" onclick="openLB('${src}','Our moment')"><div class="goverlay"><span>Our moment</span></div>`;
-  g.appendChild(d);setTimeout(()=>{d.classList.add('visible');obs.observe(d);},50);
-}
-
 // ── LIGHTBOX ──
 function openLB(src,cap){document.getElementById('lightbox-img').src=src;document.getElementById('lightbox-cap').textContent=cap;document.getElementById('lightbox').classList.add('open');document.body.style.overflow='hidden';}
 function closeLightbox(){document.getElementById('lightbox').classList.remove('open');document.body.style.overflow='';}
@@ -1012,7 +945,7 @@ async function submitRSVP(){
   const phone    = document.getElementById('rsvp-phone').value.trim();
   const attend   = document.querySelector('input[name="attend"]:checked');
   const guests   = document.getElementById('rsvp-guests').value;
-  const dietary  = document.getElementById('rsvp-dietary').value;
+  const dietary  = '🥦🥗 Vegetarian Kerala Sadya';
   const message  = document.getElementById('rsvp-message').value.trim();
   if(!name)  { errField('rsvp-name','Please enter your name.'); return; }
   if(!attend){ errField('att-yes','Please select your attendance.'); return; }
