@@ -627,6 +627,12 @@
     .couple-heart{display:none;}
     .events-grid{grid-template-columns:1fr;}
     .rsvp-card{padding:36px 24px;}
+   /* Tablet: attendance buttons drop to 2 columns */
+    .attend-grid{grid-template-columns:1fr 1fr !important;}
+  }
+  @media(max-width:460px){
+    /* Mobile: attendance buttons stack to 1 column */
+    .attend-grid{grid-template-columns:1fr !important;}
   }
 </style>
 </head>
@@ -856,7 +862,7 @@
     </div>
 
     <p style="text-align:center;margin-top:18px;font-family:'EB Garamond',serif;font-style:italic;font-size:15px;color:var(--text-dim);">
-      Click any photo to view it larger
+      Click or touch to invite a gentle melody into your space.
     </p>
   </div>
 </section>
@@ -941,10 +947,14 @@
 
         <div>
           <label class="rsvp-label" style="margin-bottom:12px;">Will you be attending? *</label>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+          <div class="attend-grid" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;">
             <label id="attend-wed-rec" class="rsvp-radio-label">
               <input type="radio" name="attendance" value="both" style="display:none;" onchange="selectAttendance(this)">
               💍 Wedding & Reception
+            </label>
+            <label id="attend-wed" class="rsvp-radio-label">
+              <input type="radio" name="attendance" value="wedding" style="display:none;" onchange="selectAttendance(this)">
+              🌸 Wedding Only
             </label>
             <label id="attend-rec" class="rsvp-radio-label">
               <input type="radio" name="attendance" value="reception" style="display:none;" onchange="selectAttendance(this)">
@@ -975,10 +985,6 @@
             <option value="">Select a preference...</option>
             <option value="vegetarian">🥦 Vegetarian</option>
             <option value="nonveg">🍗 Non-Vegetarian</option>
-            <option value="vegan">🌱 Vegan</option>
-            <option value="jain">🌿 Jain</option>
-            <option value="glutenfree">🌾 Gluten-Free</option>
-            <option value="dairyfree">🥛 Dairy-Free</option>
             <option value="halal">☪️ Halal</option>
             <option value="nopref">✨ No Preference</option>
           </select>
@@ -1120,7 +1126,7 @@ const SHEETS_URL = 'https://script.google.com/macros/s/AKfycbytIM0VcwdSNhTSst7Ox
 // ─────────────────────────────────────────────────────────────────
 
 function selectAttendance(radio) {
-  ['attend-wed-rec','attend-rec','attend-no'].forEach(id => {
+  ['attend-wed-rec','attend-wed','attend-rec','attend-no'].forEach(id => {
     const el = document.getElementById(id);
     el.style.borderColor = 'rgba(232,131,10,0.25)';
     el.style.background  = 'transparent';
@@ -1150,6 +1156,7 @@ async function submitRSVP() {
 
   const attendanceLabels = {
     both:      'Wedding & Reception',
+    wedding:   'Wedding Only',
     reception: 'Reception Only',
     no:        'Unable to Attend'
   };
@@ -1177,6 +1184,7 @@ async function submitRSVP() {
     // no-cors means we never see the response body — assume success if no network error
     const msgs = {
       both:      `We're overjoyed you'll be joining us for both the wedding and reception, <strong>${name}</strong>! Your presence will make our day shine even brighter. 🌸`,
+      wedding:   `How wonderful! We're so glad you'll be with us for the wedding ceremony, <strong>${name}</strong>! It means the world to us. 💍`,
       reception: `Wonderful! We look forward to celebrating with you at the reception, <strong>${name}</strong>! See you on June 28th. 🥂`,
       no:        `We'll truly miss you, <strong>${name}</strong>, but we understand. Thank you for your warm wishes — you'll be in our hearts on the day. 💌`
     };
