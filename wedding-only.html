@@ -252,64 +252,44 @@ section{position:relative;z-index:1;padding:88px 20px;}
 
 /* ── PHOTO GALLERY ── */
 .gallery-section{background:linear-gradient(180deg,var(--bg-mid) 0%,var(--bg) 100%);}
-.gallery-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  grid-template-rows:auto;
-  gap:12px;
-  margin-top:20px;
-}
+.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:20px;}
 .gallery-item{
   position:relative;overflow:hidden;
   background:var(--bg-panel);
-  border:1px solid rgba(232,131,10,0.15);
+  border:1px solid rgba(232,131,10,0.12);
   cursor:pointer;
-  opacity:0;transform:scale(0.96);
-  transition:opacity 0.7s ease,transform 0.7s ease,box-shadow 0.4s ease;
+  opacity:0;transform:scale(0.97);
+  transition:opacity 0.7s ease,transform 0.7s ease,box-shadow 0.35s;
 }
 .gallery-item.visible{opacity:1;transform:scale(1);}
-.gallery-item:hover{box-shadow:0 0 0 2px var(--saffron),0 12px 48px rgba(155,26,106,0.35);z-index:2;}
+.gallery-item:hover{box-shadow:0 0 0 2px var(--saffron),0 10px 40px rgba(155,26,106,0.3);z-index:2;}
 .gallery-item.tall{grid-row:span 2;}
 .gallery-item.wide{grid-column:span 2;}
-.gallery-item img{
-  width:100%;height:100%;object-fit:cover;display:block;
-  transition:transform 0.6s ease,filter 0.4s ease;
-  filter:brightness(0.92) saturate(1.1);
-}
-.gallery-item:hover img{transform:scale(1.05);filter:brightness(1) saturate(1.2);}
+.gallery-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.55s,filter 0.35s;}
+.gallery-item:hover img{transform:scale(1.05);filter:brightness(1.05) saturate(1.15);}
 .goverlay{
   position:absolute;inset:0;
   background:linear-gradient(180deg,transparent 40%,rgba(26,10,34,0.75) 100%);
-  opacity:0;transition:opacity 0.4s ease;display:flex;align-items:flex-end;padding:20px;
+  opacity:0;transition:opacity 0.35s;display:flex;align-items:flex-end;padding:16px;
 }
 .gallery-item:hover .goverlay{opacity:1;}
 .goverlay span{font-family:'EB Garamond',serif;font-style:italic;font-size:14px;color:var(--text);line-height:1.4;}
 .gallery-upload-tile{
   min-height:180px;display:flex;flex-direction:column;
   align-items:center;justify-content:center;gap:10px;cursor:pointer;
-  border:2px dashed rgba(232,131,10,0.30);background:rgba(232,131,10,0.03);
-  transition:all 0.3s;padding:24px;text-align:center;
+  border:2px dashed rgba(232,131,10,0.28);background:rgba(232,131,10,0.02);
+  transition:all 0.3s;padding:20px;text-align:center;
 }
-.gallery-upload-tile:hover{border-color:rgba(232,131,10,0.80);background:rgba(232,131,10,0.07);}
-.gallery-upload-tile .up-icon{font-size:32px;opacity:0.60;}
-.gallery-upload-tile .up-label{font-family:'EB Garamond',serif;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--saffron-l);opacity:0.75;}
+.gallery-upload-tile:hover{border-color:rgba(232,131,10,0.75);background:rgba(232,131,10,0.06);}
+.gallery-upload-tile .up-icon{font-size:28px;opacity:0.45;}
+.gallery-upload-tile .up-label{font-family:'EB Garamond',serif;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--saffron-l);opacity:0.65;}
 .gallery-add-btn{
-  display:inline-flex;align-items:center;gap:10px;margin-top:32px;padding:12px 32px;
+  display:inline-flex;align-items:center;gap:10px;margin-top:28px;padding:12px 32px;
   border:1.5px solid rgba(232,131,10,0.40);color:var(--saffron-l);
   background:transparent;font-family:'EB Garamond',serif;font-size:13px;letter-spacing:3px;
   text-transform:uppercase;cursor:pointer;transition:all 0.3s;
 }
-.gallery-add-btn:hover{background:rgba(232,131,10,0.08);border-color:var(--saffron);}
-/* Responsive gallery grid */
-@media(max-width:700px){
-  .gallery-grid{grid-template-columns:repeat(2,1fr);}
-  .gallery-item.wide{grid-column:span 2;}
-  .gallery-item.tall{grid-row:span 1;}
-}
-@media(max-width:460px){
-  .gallery-grid{grid-template-columns:1fr;}
-  .gallery-item.wide,.gallery-item.tall{grid-column:span 1;grid-row:span 1;}
-}
+.gallery-add-btn:hover{background:rgba(232,131,10,0.07);border-color:var(--saffron);}
 
 /* Lightbox */
 .lightbox{position:fixed;inset:0;z-index:9999;background:rgba(10,4,18,0.97);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity 0.4s;}
@@ -522,20 +502,20 @@ section{position:relative;z-index:1;padding:88px 20px;}
 .rsvp-input:focus{border-color:var(--magenta-l);box-shadow:0 0 0 3px rgba(201,77,155,0.12);}
 .rsvp-input::placeholder{color:var(--text-dim);}
 .rsvp-input option{background:var(--bg-panel);color:var(--text);}
-.rsvp-radio-label{
-  border:1.5px solid rgba(232,131,10,0.25);padding:14px;
+.radio-opt{
+  border:1.5px solid rgba(232,131,10,0.22);padding:14px;
   cursor:pointer;text-align:center;transition:all 0.3s;
-  font-family:'EB Garamond',serif;font-size:14px;letter-spacing:1px;color:var(--text-mid);display:block;
+  font-family:'EB Garamond',serif;font-size:14px;color:var(--text-mid);display:block;
 }
-.rsvp-radio-label:hover{border-color:var(--magenta-l);background:rgba(201,77,155,0.06);}
-.rsvp-submit{
+.radio-opt:hover{border-color:var(--magenta-l);background:rgba(201,77,155,0.06);}
+.rsvp-btn{
   width:100%;padding:16px;
   background:linear-gradient(135deg,var(--magenta),var(--magenta-d));
   border:none;color:var(--text);
   font-family:'EB Garamond',serif;font-size:14px;letter-spacing:5px;text-transform:uppercase;
   cursor:pointer;transition:all 0.3s;margin-top:8px;
 }
-.rsvp-submit:hover{background:linear-gradient(135deg,var(--magenta-l),var(--magenta));}
+.rsvp-btn:hover{background:linear-gradient(135deg,var(--magenta-l),var(--magenta));}
 
 /* ── FOOTER ── */
 footer{
@@ -574,10 +554,18 @@ footer p{font-family:'EB Garamond',serif;font-style:italic;font-size:16px;color:
   .bcard::after{display:none;}
   .bcard{margin-bottom:28px;}
   .bnub{padding-top:24px;}
+  /* gallery */
+  .gallery-grid{grid-template-columns:repeat(2,1fr);}
+  .gallery-item.wide{grid-column:span 2;}
+  .gallery-item.tall{grid-row:span 1;}
   /* venue */
   .venue-card-body{padding:40px 24px;}
   /* rsvp */
   .rsvp-card{padding:36px 22px;}
+}
+@media(max-width:480px){
+  .gallery-grid{grid-template-columns:1fr;}
+  .gallery-item.wide,.gallery-item.tall{grid-column:span 1;grid-row:span 1;}
 }
 </style>
 </head>
@@ -823,25 +811,25 @@ footer p{font-family:'EB Garamond',serif;font-style:italic;font-size:16px;color:
     <div class="gold-rule"><div class="rl"></div><div class="rd"></div><div class="rl"></div></div>
 
     <div id="rsvp-form-wrap" class="rsvp-card">
-      <p style="font-family:'EB Garamond',serif;font-style:italic;font-size:18px;color:var(--text-mid);text-align:center;margin-bottom:40px;line-height:1.8;">
+      <p style="font-family:'EB Garamond',serif;font-style:italic;font-size:18px;color:var(--text-mid);text-align:center;margin-bottom:36px;line-height:1.85;">
         Your presence on our wedding morning would mean the world to us.<br>
-        Kindly respond by <strong style="color:var(--saffron-l);">June 17th, 2026</strong>.
+        Please respond by <strong style="color:var(--saffron-l);">June 17th, 2026</strong>.
       </p>
-      <div style="display:grid;gap:22px;">
+      <div style="display:grid;gap:20px;">
         <div><label class="rsvp-label">Your Full Name *</label><input id="rsvp-name" type="text" class="rsvp-input" placeholder="Enter your name"></div>
         <div><label class="rsvp-label">Phone / WhatsApp</label><input id="rsvp-phone" type="tel" class="rsvp-input" placeholder="+91 XXXXX XXXXX"></div>
         <div>
           <label class="rsvp-label" style="margin-bottom:12px;">Will you attend the ceremony? *</label>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
-            <label id="att-yes" class="rsvp-radio-label"><input type="radio" name="attend" value="yes" style="display:none;" onchange="pickAttend(this)">💍 Yes, I'll be there</label>
-            <label id="att-no"  class="rsvp-radio-label"><input type="radio" name="attend" value="no"  style="display:none;" onchange="pickAttend(this)">🙏 Unable to attend</label>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+            <label id="att-yes" class="radio-opt"><input type="radio" name="attend" value="yes" style="display:none;" onchange="pickAttend(this)">💍 Yes, I'll be there</label>
+            <label id="att-no"  class="radio-opt"><input type="radio" name="attend" value="no"  style="display:none;" onchange="pickAttend(this)">🙏 Unable to attend</label>
           </div>
         </div>
         <div>
-          <label class="rsvp-label">Number of Guests (including yourself)</label>
+          <label class="rsvp-label">Number of Guests (including you)</label>
           <select id="rsvp-guests" class="rsvp-input" style="appearance:none;cursor:pointer;">
             <option value="">Select...</option>
-            <option value="1">Just me (1)</option><option value="2">2 guests</option><option value="3">3 guests</option><option value="4">4 guests</option><option value="5+">5 or more</option>
+            <option>Just me (1)</option><option>2 guests</option><option>3 guests</option><option>4 guests</option><option>5 or more</option>
           </select>
         </div>
         <div>
@@ -849,20 +837,22 @@ footer p{font-family:'EB Garamond',serif;font-style:italic;font-size:16px;color:
           <div id="rsvp-dietary" class="rsvp-input" style="cursor:default;opacity:0.85;">🥦🥗 Vegetarian Kerala Sadya</div>
         </div>
         <div><label class="rsvp-label">A note for the couple (optional)</label><textarea id="rsvp-message" rows="3" class="rsvp-input" style="resize:vertical;" placeholder="Send Deepu & Ammu your wishes..."></textarea></div>
-        <button class="rsvp-submit" onclick="submitRSVP()">Send RSVP ✦</button>
+        <button class="rsvp-btn" onclick="submitRSVP()">Send RSVP ✦</button>
       </div>
     </div>
 
-    <div id="rsvp-confirm" style="display:none;background:var(--bg-panel);border:1px solid rgba(232,131,10,0.25);padding:64px 44px;text-align:center;box-shadow:0 8px 48px rgba(155,26,106,0.15);">
-      <div style="font-size:56px;margin-bottom:20px;animation:heartbeat 1.5s ease-in-out infinite;">💌</div>
+    <div id="rsvp-confirm" style="display:none;background:var(--bg-panel);border:1px solid rgba(232,131,10,0.22);padding:60px 40px;text-align:center;box-shadow:0 8px 48px rgba(155,26,106,0.15);">
+      <div style="font-size:52px;margin-bottom:18px;animation:heartbeat 1.5s ease-in-out infinite;">💌</div>
       <p style="font-family:'Dancing Script',cursive;font-size:64px;font-weight:700;line-height:1;margin-bottom:14px;
          background:linear-gradient(135deg,var(--saffron-ll),var(--magenta-l));
          -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Thank You!</p>
-      <p id="rsvp-msg" style="font-family:'EB Garamond',serif;font-style:italic;font-size:18px;color:var(--text-mid);line-height:1.85;max-width:460px;margin:0 auto 28px;"></p>
-      <div class="divider-motif" style="opacity:1;margin:0 auto;">
-        <div class="dline"></div><span class="dmid" style="animation:none;font-size:18px;">✿</span><div class="dline"></div>
+      <p id="rsvp-msg" style="font-family:'EB Garamond',serif;font-style:italic;font-size:18px;color:var(--text-mid);line-height:1.85;max-width:440px;margin:0 auto 24px;"></p>
+      <div style="display:flex;align-items:center;gap:16px;justify-content:center;">
+        <div style="width:60px;height:1px;background:linear-gradient(90deg,transparent,var(--saffron));"></div>
+        <span style="color:var(--saffron);font-size:18px;">🌸</span>
+        <div style="width:60px;height:1px;background:linear-gradient(90deg,var(--saffron),transparent);"></div>
       </div>
-      <p style="font-size:13px;color:var(--text-dim);font-family:'EB Garamond',serif;margin-top:20px;font-style:italic;">To formally confirm, please also reach out directly to the family.</p>
+      <p style="font-size:13px;color:var(--text-dim);font-family:'EB Garamond',serif;margin-top:18px;font-style:italic;">To formally confirm, please also reach out directly to the family.</p>
     </div>
   </div>
 </section>
@@ -947,7 +937,7 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLightbox();});
 const SHEETS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbytIM0VcwdSNhTSst7OxnRMNz_tjoxPLxTjYz4nDvuu1PGnYTdEnxAbCD6SmJoGW_0Uiw/exec';
 
 function pickAttend(radio){
-  ['att-yes','att-no'].forEach(id=>{const el=document.getElementById(id);el.style.borderColor='rgba(232,131,10,0.25)';el.style.background='transparent';el.style.color='var(--text-mid)';});
+  ['att-yes','att-no'].forEach(id=>{const el=document.getElementById(id);el.style.borderColor='rgba(232,131,10,0.22)';el.style.background='transparent';el.style.color='var(--text-mid)';});
   const p=radio.parentElement;p.style.borderColor='var(--magenta-l)';p.style.background='rgba(201,77,155,0.08)';p.style.color='var(--text)';
 }
 async function submitRSVP(){
@@ -962,10 +952,9 @@ async function submitRSVP(){
   if(!SHEETS_SCRIPT_URL || SHEETS_SCRIPT_URL === 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE'){
     showErr('RSVP is not yet configured. Please add the Google Apps Script URL (see README.md).'); return;
   }
-  const btn = document.querySelector('.rsvp-submit');
+  const btn = document.querySelector('.rsvp-btn');
   btn.disabled = true; btn.textContent = 'Sending… ✦'; btn.style.opacity = '0.7';
   const payload = {
-    form_source: 'wedding-only',
     name,
     phone    : phone   || '—',
     attending: attend.value === 'yes' ? 'Yes — Attending' : 'No — Unable to Attend',
@@ -975,11 +964,13 @@ async function submitRSVP(){
     timestamp: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
   };
   try{
+    // Google Apps Script requires mode:'no-cors' for cross-origin POST.
+    // The response will be opaque (no readable body), so reaching .then() = success.
     await fetch(SHEETS_SCRIPT_URL, {
       method : 'POST',
       mode   : 'no-cors',
-      headers: { 'Content-Type': 'application/json' },
-      body   : JSON.stringify(payload)
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body   : new URLSearchParams(payload).toString()
     });
     const msgs = {
       yes: `We are overjoyed you'll be joining us, <strong>${name}</strong>! Your presence will make our wedding morning even more special. 🌸`,
@@ -994,8 +985,8 @@ async function submitRSVP(){
     showErr(`Something went wrong: ${err.message}. Please try again.`);
   }
 }
-function errField(id,msg){const el=document.getElementById(id);if(el){el.style.borderColor='#e84040';el.style.boxShadow='0 0 0 3px rgba(232,64,64,0.15)';setTimeout(()=>{el.style.borderColor='';el.style.boxShadow='';},3000);}showErr(msg);}
-function showErr(msg){let e=document.getElementById('rsvp-error');if(!e){e=document.createElement('p');e.id='rsvp-error';e.style.cssText='color:#e87070;font-family:EB Garamond,serif;font-style:italic;font-size:15px;margin-top:12px;text-align:center;';document.querySelector('.rsvp-submit').after(e);}e.textContent=msg;setTimeout(()=>{e.textContent='';},6000);}
+function errField(id,msg){const el=document.getElementById(id);if(el){el.style.borderColor='#e04040';el.style.boxShadow='0 0 0 3px rgba(224,64,64,0.12)';setTimeout(()=>{el.style.borderColor='';el.style.boxShadow='';},3000);}showErr(msg);}
+function showErr(msg){let e=document.getElementById('rsvp-err');if(!e){e=document.createElement('p');e.id='rsvp-err';e.style.cssText='color:#e08080;font-family:EB Garamond,serif;font-style:italic;font-size:15px;margin-top:12px;text-align:center;';document.querySelector('.rsvp-btn').after(e);}e.textContent=msg;setTimeout(()=>{e.textContent='';},6000);}
 </script>
 
 <!-- ── BACKGROUND MUSIC ── -->
