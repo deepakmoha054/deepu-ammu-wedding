@@ -509,6 +509,13 @@
   }
   .event-card-icon{font-size:40px;margin-bottom:16px;display:block;animation:floatIcon 3s ease-in-out infinite;}
   @keyframes floatIcon{0%,100%{transform:translateY(0);}50%{transform:translateY(-6px);}}
+  @keyframes lampFlicker{
+    0%,100%{transform:translateY(0) scale(1);filter:drop-shadow(0 0 8px rgba(232,131,10,0.5));}
+    25%{transform:translateY(-4px) scale(1.04);filter:drop-shadow(0 0 18px rgba(232,131,10,0.85));}
+    50%{transform:translateY(-7px) scale(1.02);filter:drop-shadow(0 0 12px rgba(232,131,10,0.65));}
+    75%{transform:translateY(-3px) scale(1.05);filter:drop-shadow(0 0 20px rgba(245,176,64,0.9));}
+  }
+  .event-card:first-child .event-card-icon{animation:lampFlicker 2.8s ease-in-out infinite;}
   .event-card-type{
     font-family:'EB Garamond',serif;font-size:11px;
     letter-spacing:5px;text-transform:uppercase;color:var(--saffron-l);margin-bottom:12px;
@@ -760,7 +767,7 @@
       </div>
 
       <div class="beat"><!-- 5 · LEFT -->
-        <div class="bcard"><p class="byear">2021</p><p class="bheading">Ammu's Wings Take Flight 📮</p><p class="btext">Athira joined the Indian Postal Service and was posted in Kottayam, beginning her career with dedication and grace. Distance began to creep in — but love held fast.</p></div>
+        <div class="bcard"><p class="byear">2021</p><p class="bheading">Ammu's Wings Take Flight 📮</p><p class="btext">Athira joined the Postal Department of India and was posted in Kottayam, beginning her career with dedication and grace. Distance began to creep in — but love held fast.</p></div>
         <div class="bnub"><div class="bdot">📮</div></div>
         <div class="bspace"></div>
       </div>
@@ -780,7 +787,7 @@
       <div class="beat"><!-- 8 · RIGHT -->
         <div class="bspace"></div>
         <div class="bnub"><div class="bdot">🌍</div></div>
-        <div class="bcard"><p class="byear">2024 – 2026</p><p class="bheading">A Long-Distance Love Story 🌍</p><p class="btext">For two long years, they held on — through the silence of midnight messages, the ache of unanswered distances, and the warmth of knowing that every sacrifice was for a future together. Ammu served at RMS, Thiruvananthapuram. Deepu worked in Aachen. And they waited.</p></div>
+        <div class="bcard"><p class="byear">2024 – 2026</p><p class="bheading">A Long-Distance Love Story 🌍</p><p class="btext">For two long years, they held on — through the silence of midnight messages, the ache of unanswered distances, and the warmth of knowing that every sacrifice was for a future together. Ammu serves at RMS, Thiruvananthapuram. Deepu worked in Aachen. And they waited.</p></div>
       </div>
 
       <div class="beat"><!-- 9 · LEFT -->
@@ -880,9 +887,9 @@
     <div class="events-grid">
 
       <div class="event-card">
-        <span class="event-card-icon">💍</span>
-        <p class="event-card-type">Holy Matrimony</p>
-        <p class="event-card-name">The Wedding</p>
+        <span class="event-card-icon" style="font-size:48px;filter:drop-shadow(0 0 10px rgba(232,131,10,0.6));">🪔</span>
+        <p class="event-card-type">Thirukalyanam</p>
+        <p class="event-card-name">Thalikettu</p>
         <div class="event-detail">
           <div class="event-detail-icon">📅</div>
           <div class="event-detail-text"><span class="event-detail-label">Date</span><strong class="event-detail-value">Saturday, 27th June 2026</strong></div>
@@ -894,6 +901,10 @@
         <div class="event-detail">
           <div class="event-detail-icon">📍</div>
           <div class="event-detail-text"><span class="event-detail-label">Venue</span><strong class="event-detail-value">Abhishekam Convention Center<br>Thrippunithura, Ernakulam</strong></div>
+        </div>
+        <div class="event-detail">
+          <div class="event-detail-icon">📝</div>
+          <div class="event-detail-text"><span class="event-detail-label">Reminder</span><strong class="event-detail-value">The Groom's party leaves from home at 6:00 am.</strong></div>
         </div>
         <a class="maps-btn" href="https://maps.google.com/?q=Abhishekam+Convention+Center+Thrippunithura" target="_blank">🗺️ &nbsp; View on Maps</a>
       </div>
@@ -913,6 +924,10 @@
         <div class="event-detail">
           <div class="event-detail-icon">📍</div>
           <div class="event-detail-text"><span class="event-detail-label">Venue</span><strong class="event-detail-value">K M Auditorium<br>Manissery</strong></div>
+        </div>
+        <div class="event-detail">
+          <div class="event-detail-icon">🎉</div>
+          <div class="event-detail-text"><span class="event-detail-label">Reminder</span><strong class="event-detail-value">Pack your smiles, bring the energy and let’s go celebrate the newlyweds</strong></div>
         </div>
         <a class="maps-btn" href="https://maps.google.com/?q=KM+Auditorium+Manissery" target="_blank">🗺️ &nbsp; View on Maps</a>
       </div>
@@ -1017,7 +1032,7 @@
 <!-- FOOTER -->
 <footer>
   <p class="footer-names">Deepu & Ammu</p>
-  <p>From Pala to Thiruvananthapuram, from Ottapalam to Aachen,<br>and back home — to each other.</p>
+  <p>From Poonjar to Thiruvananthapuram, from Ottapalam to Aachen,<br>and back home — to each other.</p>
   <div class="footer-divider"></div>
   <p style="font-family:'Dancing Script',cursive;font-size:28px;font-weight:700;color:var(--saffron-l);margin-bottom:10px;font-style:normal;">June 27, 2026</p>
   <p class="footer-note">✦ &nbsp; With love  Deepu, Ammu, Sobha, Anoop, Geethu & Meenu &nbsp; ✦</p>

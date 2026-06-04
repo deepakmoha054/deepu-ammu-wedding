@@ -455,8 +455,14 @@ section{position:relative;z-index:1;padding:88px 20px;}
 .venue-card.visible{opacity:1;transform:translateY(0);}
 .venue-card::before{content:'';position:absolute;top:0;left:0;right:0;height:5px;background:linear-gradient(90deg,var(--magenta),var(--saffron),var(--teal-l),var(--saffron),var(--magenta));}
 .venue-card-body{padding:52px 44px;text-align:center;}
-.vc-icon{font-size:42px;display:block;margin-bottom:18px;animation:floatUp 3s ease-in-out infinite;}
+.vc-icon{font-size:42px;display:block;margin-bottom:18px;animation:lampFlicker 2.8s ease-in-out infinite;}
 @keyframes floatUp{0%,100%{transform:translateY(0);}50%{transform:translateY(-6px);}}
+@keyframes lampFlicker{
+  0%,100%{transform:translateY(0)   scale(1);   filter:drop-shadow(0 0 8px  rgba(232,131,10,0.5)) drop-shadow(0 0 18px rgba(245,176,64,0.2));}
+  25%    {transform:translateY(-4px) scale(1.04);filter:drop-shadow(0 0 22px rgba(232,131,10,0.9)) drop-shadow(0 0 40px rgba(245,176,64,0.5));}
+  50%    {transform:translateY(-7px) scale(1.02);filter:drop-shadow(0 0 14px rgba(232,131,10,0.7)) drop-shadow(0 0 28px rgba(245,176,64,0.35));}
+  75%    {transform:translateY(-3px) scale(1.05);filter:drop-shadow(0 0 28px rgba(232,131,10,1.0)) drop-shadow(0 0 52px rgba(245,176,64,0.65));}
+}
 .vc-type{font-family:'EB Garamond',serif;font-size:11px;letter-spacing:5px;text-transform:uppercase;color:var(--saffron-l);margin-bottom:10px;}
 .vc-title{
   font-family:'Dancing Script',cursive;font-size:54px;font-weight:700;
@@ -725,7 +731,7 @@ footer p{font-family:'EB Garamond',serif;font-style:italic;font-size:16px;color:
       </div>
 
       <div class="beat"><!-- 5 · LEFT -->
-        <div class="bcard"><p class="byear">2021</p><p class="bheading">Ammu's Wings Take Flight 📮</p><p class="btext">Athira joined the Indian Postal Service and was posted in Kottayam, beginning her career with dedication and grace. Distance began to creep in — but love held fast.</p></div>
+        <div class="bcard"><p class="byear">2021</p><p class="bheading">Ammu's Wings Take Flight 📮</p><p class="btext">Athira joined the Postal Department of India and was posted in Kottayam, beginning her career with dedication and grace. Distance began to creep in — but love held fast.</p></div>
         <div class="bnub"><div class="bdot">📮</div></div>
         <div class="bspace"></div>
       </div>
@@ -819,13 +825,13 @@ footer p{font-family:'EB Garamond',serif;font-style:italic;font-size:16px;color:
     <div class="gold-rule"><div class="rl"></div><div class="rd"></div><div class="rl"></div></div>
     <div class="venue-card">
       <div class="venue-card-body">
-        <span class="vc-icon">💍</span>
-        <p class="vc-type">Wedding Ceremony</p>
-        <p class="vc-title">The Wedding</p>
+        <span class="vc-icon">🪔</span>
+        <p class="vc-type">Thirukalyanam</p>
+        <p class="vc-title">Thalikettu</p>
         <div class="vc-row"><div class="vc-row-icon">📅</div><div class="vc-row-text"><span class="vc-row-label">Date</span><span class="vc-row-value"><strong>Saturday, 27th June 2026</strong></span></div></div>
         <div class="vc-row"><div class="vc-row-icon">🕛</div><div class="vc-row-text"><span class="vc-row-label">Time</span><span class="vc-row-value"><strong>12:00 PM – 12:20 PM</strong></span></div></div>
         <div class="vc-row"><div class="vc-row-icon">📍</div><div class="vc-row-text"><span class="vc-row-label">Venue</span><span class="vc-row-value"><strong>Abhishekam Convention Center</strong><br>Thrippunithura, Ernakulam, Kerala</span></div></div>
-        <div class="vc-row"><div class="vc-row-icon">🪔</div><div class="vc-row-text"><span class="vc-row-label">Note</span><span class="vc-row-value">Guests are requested to be seated by 11:45 AM</span></div></div>
+        <div class="vc-row"><div class="vc-row-icon">🪔</div><div class="vc-row-text"><span class="vc-row-label">Note</span><span class="vc-row-value">The Bride's Party leaves from home at 8:45 am. Guests are requested to be seated by 11:30 AM.</span></div></div>
         <a class="maps-link" href="https://maps.google.com/?q=Abhishekam+Convention+Center+Thrippunithura" target="_blank">🗺️ &nbsp; Get Directions</a>
       </div>
     </div>
@@ -887,7 +893,7 @@ footer p{font-family:'EB Garamond',serif;font-style:italic;font-size:16px;color:
 <!-- FOOTER -->
 <footer>
   <p class="footer-names">Deepu & Ammu</p>
-  <p>From Pala to Thiruvananthapuram, from Ottapalam to Aachen,<br>and back home — to each other, forever.</p>
+  <p>From Poonjar to Thiruvananthapuram, from Ottapalam to Aachen,<br>and back home — to each other, forever.</p>
   <div class="fdivider"></div>
   <p style="font-family:'Dancing Script',cursive;font-size:32px;font-weight:700;
      background:linear-gradient(135deg,var(--saffron-ll),var(--magenta-l));
