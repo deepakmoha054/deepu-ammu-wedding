@@ -462,7 +462,7 @@
 
   .couple-card {
     text-align: center;
-    width: 240px;
+    width: 200px;
     opacity: 0;
     transform: translateY(24px);
     transition: all 0.8s ease;
@@ -471,24 +471,94 @@
   .couple-card.visible { opacity: 1; transform: translateY(0); }
   .couple-card:last-child { transition-delay: 0.2s; }
 
-  .couple-mono {
-    width: 100px; height: 100px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, var(--navy-light), var(--navy-mid));
-    border: 2px solid var(--gold-dim);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 38px;
-    margin: 0 auto 20px;
-    box-shadow: 0 0 0 6px rgba(212,168,67,0.06), 0 0 30px rgba(212,168,67,0.1);
-    transition: all 0.4s ease;
-  }
+/* ── COUPLE PHOTO PORTRAITS ── */
+.couple-photo-wrap {
+  position: relative;
+  width: 160px;
+  height: 200px;
+  margin: 0 auto 22px;
+}
 
-  .couple-mono:hover {
-    box-shadow: 0 0 0 10px rgba(212,168,67,0.1), 0 0 50px rgba(212,168,67,0.2);
-    transform: translateY(-4px);
-  }
+.couple-photo-frame {
+  width: 100%;
+  height: 100%;
+  border: 1px solid var(--gold-dim);
+  box-shadow:
+    0 0 0 5px rgba(212,168,67,0.06),
+    0 0 30px rgba(212,168,67,0.12),
+    0 8px 32px rgba(0,0,0,0.5);
+  overflow: hidden;
+  position: relative;
+  transition: all 0.4s ease;
+}
+
+.couple-photo-frame::before {
+  content: '';
+  position: absolute;
+  inset: 6px;
+  border: 1px solid rgba(212,168,67,0.15);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.couple-photo-frame::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 55%, rgba(13,27,42,0.6) 100%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.couple-photo-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  transition: transform 0.5s ease;
+  filter: brightness(0.92) contrast(1.04);
+}
+
+.couple-photo-wrap:hover .couple-photo-frame {
+  box-shadow:
+    0 0 0 8px rgba(212,168,67,0.12),
+    0 0 50px rgba(212,168,67,0.22),
+    0 12px 40px rgba(0,0,0,0.6);
+  transform: translateY(-4px);
+}
+
+.couple-photo-wrap:hover .couple-photo-frame img {
+  transform: scale(1.04);
+}
+
+.couple-photo-frame .p-corner {
+  position: absolute;
+  z-index: 3;
+  width: 10px;
+  height: 10px;
+  border-color: var(--gold);
+  border-style: solid;
+  opacity: 0.55;
+}
+.couple-photo-frame .p-corner.ptl { top: 4px; left: 4px; border-width: 1px 0 0 1px; }
+.couple-photo-frame .p-corner.ptr { top: 4px; right: 4px; border-width: 1px 1px 0 0; }
+.couple-photo-frame .p-corner.pbl { bottom: 4px; left: 4px; border-width: 0 0 1px 1px; }
+.couple-photo-frame .p-corner.pbr { bottom: 4px; right: 4px; border-width: 0 1px 1px 0; }
+
+.couple-photo-fallback {
+  display: none;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  font-size: 52px;
+  background: linear-gradient(135deg, var(--navy-light), var(--navy-mid));
+}
+
+@media (max-width: 460px) {
+  .couple-photo-wrap { width: 130px; height: 165px; }
+}
 
   .c-name {
     font-family: 'Great Vibes', cursive;
@@ -914,7 +984,17 @@
 
     <div class="couple-duo">
       <div class="couple-card">
-        <div class="couple-mono">🤵</div>
+      <div class="couple-photo-wrap">
+        <div class="couple-photo-frame">
+          <span class="p-corner ptl"></span>
+          <span class="p-corner ptr"></span>
+          <span class="p-corner pbl"></span>
+          <span class="p-corner pbr"></span>
+          <img src="photos/deepak.jpg" alt="Deepak"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+          <div class="couple-photo-fallback">🤵</div>
+        </div>
+        </div>
         <p class="c-name">Deepak</p>
         <p class="c-nick">" Deepu "</p>
         <p class="c-detail">
@@ -930,7 +1010,17 @@
       <div class="heart-center">💞</div>
 
       <div class="couple-card">
-        <div class="couple-mono">👰</div>
+        <div class="couple-photo-wrap">
+          <div class="couple-photo-frame">
+            <span class="p-corner ptl"></span>
+            <span class="p-corner ptr"></span>
+            <span class="p-corner pbl"></span>
+            <span class="p-corner pbr"></span>
+            <img src="photos/athira.jpg" alt="Athira"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+            <div class="couple-photo-fallback">👰</div>
+          </div>
+        </div>
         <p class="c-name">Athira</p>
         <p class="c-nick">" Ammu "</p>
         <p class="c-detail">
