@@ -219,36 +219,47 @@
   .countdown-label{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--text-dim);margin-top:6px;display:block;}
   .countdown-sep{font-family:'Abril Fatface',serif;font-size:48px;color:rgba(232,131,10,0.35);line-height:1;align-self:flex-start;padding-top:6px;}
 
-  /* ── COUPLE ── */
+  /* ── COUPLE PORTRAITS ── */
   .couple-section{background:linear-gradient(180deg,var(--bg) 0%,var(--bg-mid) 100%);}
-  .couple-grid{display:grid;grid-template-columns:1fr auto 1fr;gap:40px;align-items:center;margin-top:20px;}
-  .couple-card{
-    text-align:center; padding:44px 24px;
-    background:var(--bg-panel);
-    border:1px solid rgba(232,131,10,0.2);
-    box-shadow:0 4px 32px rgba(155,26,106,0.12);
+  .gold-rule{display:flex;align-items:center;justify-content:center;gap:14px;margin:0 auto 52px;}
+  .gold-rule .rl{width:80px;height:1px;background:linear-gradient(90deg,transparent,var(--saffron-l),transparent);}
+  .gold-rule .rd{width:7px;height:7px;background:var(--saffron-l);transform:rotate(45deg);box-shadow:0 0 6px rgba(245,176,64,0.5);}
+
+  .portraits-row{display:grid;grid-template-columns:1fr auto 1fr;gap:36px;align-items:stretch;margin-top:20px;}
+  .portrait-card{
+    background:var(--bg-panel);border:1px solid rgba(232,131,10,0.2);
+    overflow:hidden;
+    box-shadow:0 6px 32px rgba(155,26,106,0.12);
+    opacity:0;transform:translateY(24px);transition:all 0.8s ease;
   }
-  .couple-avatar{
-    width:120px;height:120px;border-radius:50%;
-    background:linear-gradient(135deg,var(--magenta),var(--magenta-d));
-    border:3px solid var(--saffron);
-    display:flex;align-items:center;justify-content:center;
-    font-size:48px; margin:0 auto 20px;
-    box-shadow:0 0 0 8px rgba(232,131,10,0.1);
+  .portrait-card.visible{opacity:1;transform:translateY(0);}
+  .portrait-photo-area{
+    width:100%;aspect-ratio:3/4;
+    background:linear-gradient(160deg,var(--bg-mid),var(--bg-panel));
+    display:flex;flex-direction:column;
+    align-items:center;justify-content:center;
+    position:relative;overflow:hidden;
   }
-  .couple-name{
-    font-family:'Dancing Script',cursive; font-size:54px; font-weight:700;
-    line-height:1; margin-bottom:4px;
+  .portrait-photo-area img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;display:block;}
+  .portrait-info{padding:24px 20px;text-align:center;}
+  .portrait-name{
+    font-family:'Dancing Script',cursive;font-size:clamp(36px,5vw,50px);font-weight:700;line-height:1;margin-bottom:4px;
     background:linear-gradient(135deg,var(--saffron-ll),var(--magenta-l));
     -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
   }
-  .couple-nickname{
-    font-family:'EB Garamond',serif; font-style:italic;
-    font-size:15px; color:var(--saffron-l); letter-spacing:2px; margin-bottom:18px;
+  .portrait-nick{font-family:'EB Garamond',serif;font-style:italic;font-size:15px;color:var(--saffron-l);letter-spacing:2px;margin-bottom:14px;}
+  .portrait-detail{font-size:14px;color:var(--text-dim);line-height:1.7;}
+  .portrait-detail strong{display:block;font-family:'EB Garamond',serif;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--saffron);margin-bottom:2px;font-weight:400;}
+
+  .hearts-col{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;padding:20px 0;}
+  .hring{
+    width:56px;height:56px;border-radius:50%;
+    border:1.5px solid rgba(232,131,10,0.30);
+    display:flex;align-items:center;justify-content:center;font-size:20px;
+    animation:heartbeat 1.5s ease-in-out infinite;
   }
-  .couple-from{font-size:14px;color:var(--text-dim);line-height:1.7;}
-  .couple-from span{display:block;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--saffron);margin-bottom:3px;}
-  .couple-heart{text-align:center;font-size:52px;animation:heartbeat 1.5s ease-in-out infinite;}
+  .hring:nth-child(2){animation-delay:0.3s;width:44px;height:44px;font-size:16px;border-color:rgba(201,77,155,0.3);}
+  .hring:nth-child(3){animation-delay:0.6s;}
   @keyframes heartbeat{0%,100%{transform:scale(1);}14%{transform:scale(1.15);}28%{transform:scale(1);}42%{transform:scale(1.1);}56%{transform:scale(1);}}
 
   /* ── LAMP DIVIDER ── */
@@ -625,21 +636,81 @@
     100%{transform:translateY(110vh) rotate(360deg);opacity:0;}
   }
 
-  @media(max-width:700px){
-    .timeline::before{left:24px;}
-    .timeline-item{flex-direction:column !important;padding-left:60px;}
-    .timeline-item .timeline-dot{position:absolute;left:0;}
-    .timeline-item .timeline-content::after{display:none;}
-    .couple-grid{grid-template-columns:1fr;}
-    .couple-heart{display:none;}
-    .events-grid{grid-template-columns:1fr;}
-    .rsvp-card{padding:36px 24px;}
-   /* Tablet: attendance buttons drop to 2 columns */
-    .attend-grid{grid-template-columns:1fr 1fr !important;}
+/* ══ TABLET (≤900px) ══ */
+  @media(max-width:900px){
+    .section-title{font-size:clamp(44px,8vw,70px);}
+    .portraits-row{gap:20px;}
+    .hring{width:44px;height:44px;font-size:17px;}
+    .hring:nth-child(2){width:34px;height:34px;font-size:13px;}
+    .rsvp-card{padding:44px 32px;}
+    .events-grid{grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:28px;}
   }
+
+  /* ══ LARGE MOBILE (≤700px) ══ */
+  @media(max-width:700px){
+    section{padding:64px 16px;}
+    .hero{padding:48px 16px;}
+    .border-frame{inset:10px;}
+    .hero-nicknames{font-size:18px;}
+    .big-date{font-size:clamp(18px,5vw,28px);}
+    .countdown-grid{gap:14px;}
+    .countdown-sep{font-size:32px;}
+    .portraits-row{grid-template-columns:1fr 1fr;grid-template-rows:auto auto;gap:16px;}
+    .hearts-col{grid-column:1/-1;flex-direction:row;justify-content:center;gap:12px;padding:8px 0;}
+    .hring{width:40px;height:40px;font-size:16px;}
+    .hring:nth-child(2){width:32px;height:32px;font-size:12px;}
+    .portrait-info{padding:16px 12px;}
+    .portrait-nick{font-size:13px;}
+    .portrait-detail{font-size:13px;}
+    .story-spine::before{left:24px;}
+    .beat{grid-template-columns:48px 1fr;}
+    .beat:nth-child(odd) .bcard,
+    .beat:nth-child(even) .bcard{grid-column:2;grid-row:1;transform:translateX(18px);}
+    .beat:nth-child(odd) .bnub,
+    .beat:nth-child(even) .bnub{grid-column:1;grid-row:1;}
+    .beat .bspace{display:none;}
+    .bcard::after{display:none;}
+    .bcard{margin-bottom:28px;}
+    .bnub{padding-top:24px;}
+    .bike-section{padding:64px 16px;}
+    .bike-illustration{max-width:100%;}
+    .bike-story{font-size:17px;}
+    .gallery-grid{grid-template-columns:repeat(2,1fr);gap:8px;}
+    .gallery-item.wide{grid-column:span 2;}
+    .gallery-item.tall{grid-row:span 1;}
+    .events-grid{grid-template-columns:1fr;gap:24px;}
+    .event-card{padding:36px 24px;}
+    .rsvp-card{padding:32px 20px;}
+    .attend-grid{grid-template-columns:1fr 1fr !important;}
+    footer{padding:48px 16px 32px;}
+    footer .footer-names{font-size:clamp(44px,12vw,72px);}
+    footer p{font-size:15px;}
+  }
+
+  /* ══ SMALL MOBILE (≤460px) ══ */
   @media(max-width:460px){
-    /* Mobile: attendance buttons stack to 1 column */
+    section{padding:48px 12px;}
+    .border-frame{inset:6px;}
+    .hero-nicknames{font-size:16px;letter-spacing:1px;}
+    .countdown-section{padding:40px 12px;}
+    .countdown-grid{gap:8px;}
+    .countdown-sep{font-size:24px;padding-top:4px;}
+    .portraits-row{grid-template-columns:1fr;gap:0;}
+    .hearts-col{flex-direction:row;justify-content:center;padding:16px 0;gap:16px;}
+    .portrait-card{width:100%;max-width:320px;margin:0 auto;}
+    .portrait-photo-area{aspect-ratio:4/3;}
+    .portrait-name{font-size:clamp(32px,10vw,44px);}
+    .btext{font-size:14.5px;}
+    .bike-section{padding:48px 12px;}
+    .bike-story{font-size:15px;}
+    .gallery-grid{grid-template-columns:1fr;gap:8px;}
+    .gallery-item.wide,.gallery-item.tall{grid-column:span 1;grid-row:span 1;}
+    .event-card{padding:28px 16px;}
+    .event-card-name{font-size:18px;}
+    .rsvp-card{padding:24px 14px;}
     .attend-grid{grid-template-columns:1fr !important;}
+    .lightbox-caption{font-size:13px;white-space:normal;text-align:center;width:90%;bottom:16px;}
+    #music-btn{width:44px;height:44px;font-size:18px;bottom:18px;right:18px;}
   }
 </style>
 </head>
@@ -705,28 +776,39 @@
   </div>
 </div>
 
-<!-- COUPLE -->
+<!-- COUPLE PORTRAITS -->
 <section class="couple-section">
   <div class="section-inner">
     <h2 class="section-title">The Couple</h2>
     <p class="section-subtitle">✦ Two souls, one journey ✦</p>
-    <div class="couple-grid">
-      <div class="couple-card">
-        <div class="couple-avatar">🤵</div>
-        <p class="couple-name">Deepak</p>
-        <p class="couple-nickname">"Deepu"</p>
-        <p class="couple-from"><span>Hometown</span>Ottapalam, Palakkad</p>
-        <p class="couple-from" style="margin-top:10px;"><span>Currently</span>Aachen, Germany</p>
-        <p class="couple-from" style="margin-top:10px;"><span>Son of</span>K Mohanadasan & M G Sobhanakumari</p>
+    <div class="gold-rule"><div class="rl"></div><div class="rd"></div><div class="rl"></div></div>
+    <div class="portraits-row">
+      <div class="portrait-card">
+        <div class="portrait-photo-area">
+          <img src="photos/deepak.jpg" alt="Deepak">
+        </div>
+        <div class="portrait-info">
+          <p class="portrait-name">Deepak</p>
+          <p class="portrait-nick">"Deepu"</p>
+          <p class="portrait-detail"><strong>Hometown</strong>Ottapalam, Palakkad</p>
+          <p class="portrait-detail" style="margin-top:8px;"><strong>Son of</strong>K Mohanadasan & M G Sobhanakumari</p>
+        </div>
       </div>
-      <div class="couple-heart">💕</div>
-      <div class="couple-card">
-        <div class="couple-avatar">👰</div>
-        <p class="couple-name">Athira</p>
-        <p class="couple-nickname">"Ammu"</p>
-        <p class="couple-from"><span>Hometown</span>Poonjar, Kottayam</p>
-        <p class="couple-from" style="margin-top:10px;"><span>Currently</span>Thiruvananthapuram</p>
-        <p class="couple-from" style="margin-top:10px;"><span>Daughter of</span>V G Janardanan Nair & Anitha N Nair</p>
+      <div class="hearts-col">
+        <div class="hring">💕</div>
+        <div class="hring">🌸</div>
+        <div class="hring">💍</div>
+      </div>
+      <div class="portrait-card" style="transition-delay:0.2s;">
+        <div class="portrait-photo-area">
+          <img src="photos/athira.jpg" alt="Athira">
+        </div>
+        <div class="portrait-info">
+          <p class="portrait-name">Athira</p>
+          <p class="portrait-nick">"Ammu"</p>
+          <p class="portrait-detail"><strong>Hometown</strong>Poonjar, Kottayam</p>
+          <p class="portrait-detail" style="margin-top:8px;"><strong>Daughter of</strong>V G Janardanan Nair & Anitha N Nair</p>
+        </div>
       </div>
     </div>
   </div>
@@ -1060,7 +1142,7 @@ for(let i=0;i<6;i++) setTimeout(createPetal, i * 400);
 const observer = new IntersectionObserver(entries => {
   entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
 }, { threshold: 0.12 });
-document.querySelectorAll('.bcard, .event-card, .gallery-item').forEach(el => observer.observe(el));
+document.querySelectorAll('.portrait-card, .bcard, .event-card, .gallery-item').forEach(el => observer.observe(el));
 
 // ── COUNTDOWN ──
 function updateCountdown() {
